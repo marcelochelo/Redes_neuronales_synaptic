@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/synaptic/1.1.4/synaptic.js"></script>
+    
+</head>
+<body>
+    
+    <table class="egt">
+
+  <tr>
+
+      <td><button></button></td>
+      
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+
+  <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+        <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+        <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+        <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+        <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+        <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+        <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+        <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+        <tr>
+
+    <td>Celda 1</td>
+
+    <td>Celda 2</td>
+
+    <td>Celda 3</td>
+      
+    <td>Celda 4</td>
+
+    <td>Celda 5</td>
+
+    <td>Celda 6</td>  
+
+  </tr>
+
+</table>
+    
+    
+    
+    <script>
+        
+        function miMunero(){
+            var inputLayer = new synaptic.Layer(60);
+            
+            var hiddenlayer = new synaptic.Layer(6);
+            var hiddenlayer1 = new synaptic.Layer(6);
+                        
+            var outputLayer = new synaptic.Layer(1);
+            
+            inputLayer.project(hiddenlayer);
+            hiddenlayer.project(hiddenlayer1);
+            hiddenlayer1.project(outputLayer);
+                      
+            this.set(
+                {
+                    input:inputLayer,
+                    hidden:[hiddenlayer,hiddenlayer1],
+                    output:outputLayer
+                }
+            );
+        }
+        miMunero.prototype = new synaptic.Network();
+        miMunero.prototype.constructor = miMunero;
+        
+        var rn = new miMunero();
+        var entrenar = new synaptic.Trainer(rn);
+        entrenar.train([
+            {
+                //numero 0
+                input:[ 0,1,1,1,1,0,
+                        1,1,1,1,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,1,1,1,1,
+                        0,1,1,1,1,0],
+                output:[0.0]
+            },    
+            {
+                //numero 1
+                input:[ 0,0,0,1,1,0,
+                        0,0,1,1,1,0,
+                        0,1,1,1,1,0,
+                        1,1,0,1,1,0,
+                        0,0,0,1,1,0,
+                        0,0,0,1,1,0,
+                        0,0,0,1,1,0,
+                        0,0,0,1,1,0,
+                        0,0,0,1,1,0,
+                        0,0,0,1,1,0],
+                output:[0.1]
+            },
+            {
+                //numero 2
+                input:[ 0,0,0,1,1,0,
+                        0,0,1,1,1,1,
+                        0,1,1,0,1,1,
+                        1,1,0,0,1,1,
+                        1,0,0,1,1,0,
+                        0,0,1,1,0,0,
+                        0,1,1,0,0,0,
+                        1,1,0,0,0,0,
+                        1,1,1,1,1,1,
+                        1,1,1,1,1,1],
+                output:[0.2]
+            }/*,
+            {
+                //numero 3
+                input:[ 1,1,1,1,1,0,
+                        1,1,1,1,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        1,1,1,1,1,0,
+                        1,1,1,1,1,0,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        1,1,1,1,1,1,
+                        1,1,1,1,1,0],
+                output:[3]
+            },
+            {
+                //numero 4
+                input:[ 1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,1,1,1,1,
+                        1,1,1,1,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1],
+                output:[4]
+            },
+            {
+                //numero 5
+                input:[ 1,1,1,1,1,1,
+                        1,1,1,1,1,1,
+                        1,1,0,0,0,0,
+                        1,1,0,0,0,0,
+                        1,1,1,1,0,0,
+                        1,1,1,1,1,0,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        1,1,1,1,1,1,
+                        1,1,1,1,1,0],
+                output:[5]
+            },
+            {
+                //numero 6
+                input:[ 0,0,0,0,0,1,
+                        0,0,0,0,1,1,
+                        0,0,0,1,1,0,
+                        0,0,1,1,0,0,
+                        0,1,1,0,0,0,
+                        1,1,1,1,1,0,
+                        1,1,1,1,1,1,
+                        1,1,0,0,1,1,
+                        0,1,1,1,1,1,
+                        0,0,1,1,1,0],
+                output:[6]
+            },
+            {
+                //numero 7
+                input:[ 1,1,1,1,1,1,
+                        1,1,1,1,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        0,0,1,1,1,1,
+                        0,0,1,1,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1],
+                output:[7]
+            },
+            {
+                //numero 8
+                input:[ 0,1,1,1,1,0,
+                        1,1,1,1,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        0,1,1,1,1,0,
+                        0,1,1,1,1,0,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        1,1,1,1,1,1,
+                        0,1,1,1,1,0],
+                output:[8]
+            },
+            {
+                //numero 9
+                input:[ 0,1,1,1,1,0,
+                        1,1,1,1,1,1,
+                        1,1,0,0,1,1,
+                        1,1,0,0,1,1,
+                        0,1,1,1,1,1,
+                        0,0,1,1,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1,
+                        0,0,0,0,1,1],
+                output:[9]
+            }
+       */     
+        ],{
+            iterations:100000000000000,
+            cost:synaptic.Trainer.cost.MSE,
+            shuffle:true,
+            log:false
+        });
+//numero 0
+        var por=rn.activate([  
+            0,1,1,1,1,0,
+            1,1,1,1,1,1,
+            1,1,1,1,1,1,
+            1,1,1,1,1,1,
+            1,1,1,1,1,1,
+            1,1,1,1,1,1,
+            1,1,1,1,1,1,
+            1,1,1,1,1,1,
+            1,1,1,1,1,1,
+            0,1,1,1,1,0]);
+        
+        console.log("numero0: "+(Math.round(por*100)/100));
+        
+        
+console.log("numero1: "+rn.activate([
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0
+]));
+console.log("numero2: "+rn.activate([
+    0,0,0,1,1,0,
+    0,0,1,1,1,0,
+    0,1,1,0,1,0,
+    1,1,0,0,1,0,
+    1,0,0,1,1,0,
+    0,0,1,1,0,0,
+    0,1,1,0,0,0,
+    1,1,0,0,0,0,
+    1,1,1,1,1,1,
+    0,0,0,0,0,0
+]));
+
+
+
+
+
+
+
+        
+    </script>
+</body>
+</html>
